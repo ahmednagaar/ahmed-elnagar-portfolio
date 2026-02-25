@@ -1,5 +1,5 @@
 {
-    "buildCommand": "",
-    "outputDirectory": ".",
+    "buildCommand": "ng build --configuration production",
+    "outputDirectory": "dist/ahmed-portfolio/browser",
     "framework": null
 }

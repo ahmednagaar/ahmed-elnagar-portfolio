@@ -1,264 +1,97 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'app-hero',
-    imports: [CommonModule],
-    template: `
-    <section id="home" class="hero">
-      <div class="hero-background">
-        <div class="gradient-orb orb-1"></div>
-        <div class="gradient-orb orb-2"></div>
-        <div class="gradient-orb orb-3"></div>
+  selector: 'app-hero',
+  imports: [CommonModule],
+  template: `
+    <section class="hero" id="home">
+      <div class="hero-bg">
+        <div class="hero-orb o1"></div>
+        <div class="hero-orb o2"></div>
+        <div class="hero-orb o3"></div>
+        <div class="hero-grid"></div>
       </div>
-      
       <div class="container hero-content">
-        <div class="hero-text">
-          <p class="greeting fade-in-up">Hi, I'm</p>
-          <h1 class="name fade-in-up">Ahmed Elnagar</h1>
-          <h2 class="title fade-in-up">
-            <span class="typing-text">Full-Stack Developer</span>
-          </h2>
-          <p class="subtitle fade-in-up">
-            Specializing in <span class="highlight">.NET</span> & <span class="highlight">Angular</span>
-          </p>
-          <p class="description fade-in-up">
-            Building secure, scalable web applications with clean, efficient code and seamless integration
-          </p>
-          
-          <div class="hero-buttons fade-in-up">
-            <a href="#contact" class="btn btn-primary">Get In Touch</a>
-            <a href="#projects" class="btn btn-outline">View Projects</a>
-          </div>
-          
-          <div class="social-links fade-in-up">
-            <a href="https://linkedin.com/in/ahmed-elnagar" target="_blank" class="social-link">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-              </svg>
-            </a>
-            <a href="https://github.com/ahmed-elnagar" target="_blank" class="social-link">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-            </a>
-            <a href="mailto:elnagarahmed031@gmail.com" class="social-link">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
-              </svg>
-            </a>
-          </div>
+        <div class="hero-badge"><i class="fas fa-circle"></i> Available for Opportunities</div>
+        <h1><span class="gradient">Ahmed Elnagar</span></h1>
+        <p class="hero-role" [innerHTML]="typingHtml"></p>
+        <p class="hero-sub">Specializing in <strong>.NET</strong> &amp; <strong>Angular</strong> — Building secure,
+          scalable web applications with clean, efficient code and seamless integration.</p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn btn-primary" (click)="scroll($event, 'contact')"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+          <a href="#projects" class="btn btn-outline" (click)="scroll($event, 'projects')"><i class="fas fa-eye"></i> View Projects</a>
+          <a href="#" class="btn btn-download" title="Download Resume"><i class="fas fa-download"></i> <span>Download CV</span></a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://linkedin.com/in/ahmed-elnagar" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/ahmed-elnagar" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="mailto:elnagarahmed031&#64;gmail.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
-      
-      <div class="scroll-indicator">
-        <div class="mouse">
-          <div class="wheel"></div>
-        </div>
-      </div>
+      <div class="scroll-hint"><span>Scroll</span><div class="line"></div></div>
     </section>
   `,
-    styles: [`
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      padding-top: 80px;
-    }
-    
-    .hero-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 0;
-    }
-    
-    .gradient-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.3;
-      animation: float 6s ease-in-out infinite;
-    }
-    
-    .orb-1 {
-      width: 500px;
-      height: 500px;
-      background: var(--gradient-1);
-      top: -200px;
-      right: -100px;
-    }
-    
-    .orb-2 {
-      width: 400px;
-      height: 400px;
-      background: var(--gradient-2);
-      bottom: -150px;
-      left: -100px;
-      animation-delay: 2s;
-    }
-    
-    .orb-3 {
-      width: 300px;
-      height: 300px;
-      background: var(--gradient-3);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation-delay: 4s;
-    }
-    
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-    }
-    
-    .greeting {
-      font-size: 1.2rem;
-      color: var(--gray-text);
-      margin-bottom: 10px;
-    }
-    
-    .name {
-      font-size: 4rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-      background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-    }
-    
-    .typing-text {
-      background: var(--gradient-1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .subtitle {
-      font-size: 1.3rem;
-      color: var(--gray-text);
-      margin-bottom: 20px;
-    }
-    
-    .highlight {
-      color: var(--primary-color);
-      font-weight: 600;
-    }
-    
-    .description {
-      font-size: 1.1rem;
-      color: var(--gray-text);
-      max-width: 600px;
-      margin: 0 auto 40px;
-      line-height: 1.8;
-    }
-    
-    .hero-buttons {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
-    
-    .social-links {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-    }
-    
-    .social-link {
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--card-bg);
-      border-radius: 50%;
-      color: var(--light-text);
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .social-link:hover {
-      background: var(--primary-color);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
-    }
-    
-    .scroll-indicator {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    
-    .mouse {
-      width: 30px;
-      height: 50px;
-      border: 2px solid var(--primary-color);
-      border-radius: 15px;
-      position: relative;
-    }
-    
-    .wheel {
-      width: 4px;
-      height: 10px;
-      background: var(--primary-color);
-      border-radius: 2px;
-      position: absolute;
-      top: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      animation: scroll 1.5s ease-in-out infinite;
-    }
-    
-    @keyframes scroll {
-      0%, 100% {
-        top: 8px;
-        opacity: 1;
-      }
-      50% {
-        top: 25px;
-        opacity: 0.5;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .name {
-        font-size: 2.5rem;
-      }
-      
-      .title {
-        font-size: 1.8rem;
-      }
-      
-      .subtitle {
-        font-size: 1.1rem;
-      }
-      
-      .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .hero-buttons .btn {
-        width: 200px;
-      }
-    }
-  `]
+  styles: []
 })
-export class HeroComponent { }
+export class HeroComponent implements OnInit {
+  typingHtml = 'Full-Stack Developer<span class="typing-cursor"></span>';
+  private roles = ['Full-Stack Developer', 'ASP.NET Developer', 'Angular Developer', 'Problem Solver'];
+  private rIdx = 0;
+  private cIdx = 0;
+  private deleting = false;
+  private isBrowser: boolean;
+
+  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
+
+  ngOnInit() {
+    if (!this.isBrowser) return;
+    // Parallax orbs
+    window.addEventListener('mousemove', (e) => {
+      const orbs = document.querySelectorAll('.hero-orb');
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+      orbs.forEach((orb, i) => {
+        const s = (i + 1) * 12;
+        (orb as HTMLElement).style.transform = `translate(${x * s}px,${y * s}px)`;
+      });
+    });
+
+    // Start typing after delay
+    this.cIdx = this.roles[0].length;
+    setTimeout(() => {
+      this.deleting = true;
+      setTimeout(() => this.type(), 2000);
+    }, 1500);
+  }
+
+  private type() {
+    const current = this.roles[this.rIdx];
+    if (!this.deleting) {
+      this.cIdx++;
+      if (this.cIdx > current.length) {
+        setTimeout(() => { this.deleting = true; this.type(); }, 2000);
+        return;
+      }
+    } else {
+      this.cIdx--;
+      if (this.cIdx < 0) {
+        this.cIdx = 0;
+        this.deleting = false;
+        this.rIdx = (this.rIdx + 1) % this.roles.length;
+        setTimeout(() => this.type(), 400);
+        return;
+      }
+    }
+    this.typingHtml = current.substring(0, this.cIdx) + '<span class="typing-cursor"></span>';
+    setTimeout(() => this.type(), this.deleting ? 40 : 80);
+  }
+
+  scroll(e: Event, id: string) {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
