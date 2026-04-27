@@ -22,10 +22,10 @@ import { CommonModule } from '@angular/common';
         <div class="hero-btns">
           <a href="#contact" class="btn btn-primary" (click)="scroll($event, 'contact')"><i class="fas fa-paper-plane"></i> Get In Touch</a>
           <a href="#projects" class="btn btn-outline" (click)="scroll($event, 'projects')"><i class="fas fa-eye"></i> View Projects</a>
-          <a href="#" class="btn btn-download" title="Download Resume"><i class="fas fa-download"></i> <span>Download CV</span></a>
+          <a href="assets/Ahmed_Elnagar_CV.pdf" download="Ahmed_Elnagar_CV.pdf" class="btn btn-download" title="Download Resume"><i class="fas fa-download"></i> <span>Download CV</span></a>
         </div>
         <div class="hero-socials">
-          <a href="https://linkedin.com/in/ahmed-elnagar" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/ahmed-elnagar-78642228a/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
           <a href="https://github.com/ahmed-elnagar" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
           <a href="mailto:elnagarahmed031&#64;gmail.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>

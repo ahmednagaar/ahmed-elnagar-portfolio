@@ -7,6 +7,7 @@ import { AboutComponent } from './components/about/about.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { ProjectsComponent } from './components/projects/projects.component';
+import { FreelancingComponent } from './components/freelancing/freelancing.component';
 import { EducationComponent } from './components/education/education.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -22,6 +23,7 @@ import { JourneyComponent } from './components/journey/journey.component';
     SkillsComponent,
     ExperienceComponent,
     ProjectsComponent,
+    FreelancingComponent,
     EducationComponent,
     JourneyComponent,
     ContactComponent,
@@ -48,6 +50,7 @@ import { JourneyComponent } from './components/journey/journey.component';
     <app-skills></app-skills>
     <app-experience></app-experience>
     <app-projects></app-projects>
+    <app-freelancing></app-freelancing>
     <app-journey></app-journey>
     <app-education></app-education>
     <app-contact></app-contact>

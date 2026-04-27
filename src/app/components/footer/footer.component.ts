@@ -19,7 +19,7 @@ import { CommonModule } from '@angular/common';
             <a href="#contact" (click)="scroll($event, 'contact')">Contact</a>
           </div>
           <div class="footer-socials">
-            <a href="https://linkedin.com/in/ahmed-elnagar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.linkedin.com/in/ahmed-elnagar-78642228a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://github.com/ahmed-elnagar" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
             <a href="mailto:elnagarahmed031&#64;gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
           </div>

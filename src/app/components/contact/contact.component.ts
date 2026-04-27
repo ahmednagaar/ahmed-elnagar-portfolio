@@ -20,10 +20,10 @@ import { AppComponent } from '../../app.component';
             <h3>Email</h3>
             <p>elnagarahmed031&#64;gmail.com</p>
           </a>
-          <a href="https://linkedin.com/in/ahmed-elnagar" target="_blank" rel="noopener noreferrer" class="contact-card reveal">
+          <a href="https://www.linkedin.com/in/ahmed-elnagar-78642228a/" target="_blank" rel="noopener noreferrer" class="contact-card reveal">
             <div class="c-icon"><i class="fab fa-linkedin-in"></i></div>
             <h3>LinkedIn</h3>
-            <p>linkedin.com/in/ahmed-elnagar</p>
+            <p>linkedin.com/in/ahmed-elnagar-78642228a</p>
           </a>
           <a href="tel:+2001110439963" class="contact-card reveal">
             <div class="c-icon"><i class="fas fa-phone"></i></div>
