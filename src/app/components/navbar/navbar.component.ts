@@ -15,8 +15,8 @@ import { CommonModule } from '@angular/common';
           <li><a href="#skills" [class.active]="activeSection==='skills'" (click)="navClick($event, 'skills')">Skills</a></li>
           <li><a href="#experience" [class.active]="activeSection==='experience'" (click)="navClick($event, 'experience')">Experience</a></li>
           <li><a href="#projects" [class.active]="activeSection==='projects'" (click)="navClick($event, 'projects')">Projects</a></li>
+          <li><a href="#freelancing" [class.active]="activeSection==='freelancing'" (click)="navClick($event, 'freelancing')">Freelancing</a></li>
           <li><a href="#journey" [class.active]="activeSection==='journey'" (click)="navClick($event, 'journey')">Journey</a></li>
-          <li><a href="#education" [class.active]="activeSection==='education'" (click)="navClick($event, 'education')">Education</a></li>
           <li><a href="#contact" class="nav-cta" (click)="navClick($event, 'contact')">Contact</a></li>
         </ul>
         <button class="hamburger" [class.open]="menuOpen" (click)="menuOpen=!menuOpen" aria-label="Toggle menu">
