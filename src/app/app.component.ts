@@ -10,6 +10,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { FreelancingComponent } from './components/freelancing/freelancing.component';
 import { EducationComponent } from './components/education/education.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { CertificationsComponent } from './components/certifications/certifications.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { JourneyComponent } from './components/journey/journey.component';
 
@@ -25,6 +26,7 @@ import { JourneyComponent } from './components/journey/journey.component';
     ProjectsComponent,
     FreelancingComponent,
     EducationComponent,
+    CertificationsComponent,
     JourneyComponent,
     ContactComponent,
     FooterComponent
@@ -53,6 +55,7 @@ import { JourneyComponent } from './components/journey/journey.component';
     <app-freelancing></app-freelancing>
     <app-journey></app-journey>
     <app-education></app-education>
+    <app-certifications></app-certifications>
     <app-contact></app-contact>
     <app-footer></app-footer>
 

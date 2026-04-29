@@ -29,10 +29,15 @@ import { AppComponent } from '../../app.component';
               <h3>LinkedIn</h3>
               <p>linkedin.com/in/ahmed-elnagar-78642228a</p>
             </a>
-            <a href="tel:+2001110439963" class="contact-card reveal">
+            <a href="tel:+201110439963" class="contact-card reveal">
               <div class="c-icon"><i class="fas fa-phone"></i></div>
               <h3>Phone</h3>
-              <p>01110439963</p>
+              <p>+20 111 043 9963</p>
+            </a>
+            <a href="https://wa.me/201110439963" target="_blank" rel="noopener noreferrer" class="contact-card reveal">
+              <div class="c-icon"><i class="fab fa-whatsapp"></i></div>
+              <h3>WhatsApp</h3>
+              <p>Chat with me</p>
             </a>
             <div class="contact-card reveal">
               <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>

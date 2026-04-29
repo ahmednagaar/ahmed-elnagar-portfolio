@@ -32,7 +32,7 @@ import { CommonModule } from '@angular/common';
   styles: []
 })
 export class FooterComponent implements OnInit {
-  currentYear = 2025;
+  currentYear = 2026;
   private isBrowser: boolean;
 
   constructor(@Inject(PLATFORM_ID) platformId: Object) {

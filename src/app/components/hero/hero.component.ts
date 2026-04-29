@@ -12,6 +12,9 @@ import { CommonModule } from '@angular/common';
         <div class="hero-orb o2"></div>
         <div class="hero-orb o3"></div>
         <div class="hero-grid"></div>
+        <div class="hero-particles">
+          <div class="particle" *ngFor="let p of particles" [style.left.%]="p.x" [style.top.%]="p.y" [style.width.px]="p.size" [style.height.px]="p.size" [style.animation-delay.s]="p.delay" [style.animation-duration.s]="p.duration"></div>
+        </div>
       </div>
       <div class="container hero-content">
         <div class="hero-badge"><i class="fas fa-circle"></i> Available for Opportunities</div>
@@ -27,6 +30,7 @@ import { CommonModule } from '@angular/common';
         <div class="hero-socials">
           <a href="https://www.linkedin.com/in/ahmed-elnagar-78642228a/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
           <a href="https://github.com/ahmednagaar" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://wa.me/201110439963" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
           <a href="mailto:elnagarahmed031&#64;gmail.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
@@ -42,6 +46,15 @@ export class HeroComponent implements OnInit {
   private cIdx = 0;
   private deleting = false;
   private isBrowser: boolean;
+
+  // Generate random particles for hero background
+  particles = Array.from({ length: 30 }, () => ({
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: Math.random() * 3 + 1,
+    delay: Math.random() * 6,
+    duration: Math.random() * 4 + 3,
+  }));
 
   constructor(@Inject(PLATFORM_ID) platformId: Object) {
     this.isBrowser = isPlatformBrowser(platformId);
