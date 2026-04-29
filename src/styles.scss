@@ -271,6 +271,26 @@ section {
   mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
 }
 
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--accent-light);
+  opacity: .15;
+  animation: particleFloat 6s ease-in-out infinite alternate;
+}
+
+@keyframes particleFloat {
+  0% { transform: translateY(0) scale(1); opacity: .15 }
+  100% { transform: translateY(-30px) scale(1.5); opacity: .05 }
+}
+
 .hero-content {
   position: relative;
   z-index: 1;
